@@ -6,6 +6,8 @@ Repo created for the C4A event
 
 ## Purpose:
 * Make use of ansible automation to comply with IBM Security Compliance Policy for Linux servers.
+1. 5.2 SSH Server Configuration
+2. 
 
 ## References:
 1. https://secscan.acron.pl/centos7/start
