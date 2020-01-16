@@ -10,8 +10,13 @@ Repo created for the C4A event
 2. 
 
 ## References:
-1. https://secscan.acron.pl/centos7/start
-2. 
+1. https://www.cisecurity.org/benchmark/red_hat_linux/
+CIS Red Hat Enterprise Linux 8 Benchmark v1.0.0
+CIS Red Hat Enterprise Linux 7 Benchmark v2.2.0
+CIS Red Hat Enterprise Linux 6 Benchmark v2.1.0
+CIS Red Hat Enterprise Linux 5 Benchmark v2.2.0
+2. https://secscan.acron.pl/centos7/start
+3. 
 
 ### Example:
 * Rule Title: Ensure SSH root login is disabled
