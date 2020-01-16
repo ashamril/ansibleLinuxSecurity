@@ -1,6 +1,7 @@
 # c4a-ansi4comply
 Repo created for the C4A event
 
+Usage:
 To use ansible to comply with IBM Security Compliance
 
 Example:
@@ -18,3 +19,5 @@ lineinfile:<br>
 	line: PermitRootLogin no<br>
 	validate: sshd -tf %s<br>
 notify: reload sshd<br>
+
+Team Members:
