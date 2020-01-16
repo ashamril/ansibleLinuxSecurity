@@ -2,7 +2,7 @@
 Repo created for the C4A event
 
 ## Usage :
-* 
+* ansible-playbook -i ./list_hosts -u seccom.yml
 
 ## Purpose:
 * To use ansible to comply with IBM Security Compliance
