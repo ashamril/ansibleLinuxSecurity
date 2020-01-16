@@ -7,6 +7,10 @@ Repo created for the C4A event
 ## Purpose:
 * Make use of ansible automation to comply with IBM Security Compliance Policy for Linux servers.
 
+## References:
+1. https://secscan.acron.pl/centos7/start
+2. 
+
 ### Example:
 * Rule Title: Ensure SSH root login is disabled
 * Fix Text: To explicitly disallow root login. Add or correct the following line in "/etc/ssh/sshd_config":
