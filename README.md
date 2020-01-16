@@ -1,7 +1,10 @@
 # c4a-ansi4comply
 Repo created for the C4A event
 
-## Usage:
+## Usage :
+* 
+
+## Purpose:
 * To use ansible to comply with IBM Security Compliance
 
 ### Example:
