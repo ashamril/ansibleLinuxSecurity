@@ -10,11 +10,11 @@ Fix Text: To explicitly disallow root login. Add or correct the following line i
 
 PermitRootLogin no
 
-name: "5.2.8 Ensure SSH root login is disabled"
-lineinfile:
-  state: present
-  dest: /etc/ssh/sshd_config
-  regexp: ^#?PermitRootLogin
-  line: PermitRootLogin no
-  validate: sshd -tf %s
-  notify: reload sshd
+name: "5.2.8 Ensure SSH root login is disabled"<br>
+lineinfile:<br>
+	state: present<br>
+	dest: /etc/ssh/sshd_config<br>
+	regexp: ^#?PermitRootLogin<br>
+	line: PermitRootLogin no<br>
+	validate: sshd -tf %s<br>
+notify: reload sshd<br>
