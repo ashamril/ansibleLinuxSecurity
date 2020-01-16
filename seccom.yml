@@ -1,6 +1,6 @@
 # It run based on hosts
 - name: Fixed security compliance
-  hosts: list_hosts
+  hosts: Dev
 
   tasks:
   - name: "5.2.8 Ensure SSH root login is disabled"
