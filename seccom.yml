@@ -11,3 +11,19 @@
       line: PermitRootLogin no
       validate: sshd -tf %s
       notify: reload sshd
+  - name: "5.2.13 Ensure SSH Idle Timeout Interval is configured - ClientAliveCountMax"
+      lineinfile:
+      state: present
+      dest: /etc/ssh/sshd_config
+      regexp: ^#?ClientAliveCountMax 900
+      line: ClientAliveCountMax 
+      validate: sshd -tf %s
+      notify: reload sshd
+  - name: "5.2.13 Ensure SSH LoginGraceTime is set to one minute or less"
+      lineinfile:
+      state: present
+      dest: /etc/ssh/sshd_config
+      regexp: ^#?LoginGraceTime
+      line: LoginGraceTime 60
+      validate: sshd -tf %s
+      notify: reload sshd
