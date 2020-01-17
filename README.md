@@ -7,6 +7,7 @@ Repo created for the C4A event
 ## Purpose:
 * Make use of ansible to comply with IBM or Clients Security Compliance Policy for Linux servers.
 
+# Topics covered:
 1 Initial Setup
 * 1.1 Filesystem Configuration
 
@@ -33,13 +34,13 @@ Repo created for the C4A event
 6 System Maintenance
 * 6.1 System File Permissions
 
-## References:
+## References / Benchmark:
 1. https://www.cisecurity.org/benchmark/red_hat_linux/<br>
 CIS Red Hat Enterprise Linux 8 Benchmark v1.0.0<br>
 CIS Red Hat Enterprise Linux 7 Benchmark v2.2.0<br>
 CIS Red Hat Enterprise Linux 6 Benchmark v2.1.0<br>
 CIS Red Hat Enterprise Linux 5 Benchmark v2.2.0<br>
-2. https://secscan.acron.pl/centos7/start
+
 
 
 ### Example:
