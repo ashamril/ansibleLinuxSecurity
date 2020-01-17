@@ -2,4 +2,11 @@
 - name: 5.2 SSH Server Configuration
   hosts: Dev
   
+  tasks:
+  - name: "1.1.1.1 Ensure mounting of cramfs filesystems is disabled"
+    lineinfile:
+      dest: /etc/modprobe.d/CIS.conf
+      regexp: "^(#)?install cramfs(\\s|$)"
+      line: "install cramfs /bin/true"
+      create: yes
   
