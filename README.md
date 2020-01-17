@@ -1,10 +1,10 @@
-# c4a-ansi4comply
+## c4a-ansi4comply
 Repo created for the C4A event
 
 ## Usage :
 * ansible-playbook -i ./list_hosts -u 5.2_SSH_Server_Configuration.yml
 
-## Purpose:
+# Purpose:
 * Make use of ansible to comply with IBM or Clients Security Compliance Policy for Linux servers.
 
 # Topics covered:
