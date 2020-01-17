@@ -1,13 +1,13 @@
-## c4a-ansi4comply
+# c4a-ansi4comply
 Repo created for the C4A event
 
 ## Usage :
 * ansible-playbook -i ./list_hosts -u 5.2_SSH_Server_Configuration.yml
 
-# Purpose:
+## Purpose:
 * Make use of ansible to comply with IBM or Clients Security Compliance Policy for Linux servers.
 
-# Topics covered:
+## Topics covered:
 1 Initial Setup
 * 1.1 Filesystem Configuration
 
@@ -43,7 +43,7 @@ CIS Red Hat Enterprise Linux 5 Benchmark v2.2.0<br>
 
 
 
-### Example:
+## Example:
 * Rule Title: Ensure SSH root login is disabled
 * Fix Text: To explicitly disallow root login. Add or correct the following line in "/etc/ssh/sshd_config":
 * PermitRootLogin no
