@@ -18,12 +18,19 @@
       regexp: '^Protocol'
       line: 'Protocol 2'
       
-  - name: "5.2.3 | Ensure SSH LogLevel is set to INFO"
+  - name: "5.2.3 Ensure SSH LogLevel is set to INFO"
   lineinfile:
       state: present
       dest: /etc/ssh/sshd_config
       regexp: '^LogLevel'
       line: 'LogLevel INFO'
+      
+  - name: "5.2.4 Ensure SSH X11 forwarding is disabled"
+  lineinfile:
+      state: present
+      dest: /etc/ssh/sshd_config
+      regexp: '^X11Forwarding'
+      line: 'X11Forwarding no'
       
   - name: "5.2.8 Ensure SSH root login is disabled"
     lineinfile:
