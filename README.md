@@ -5,7 +5,7 @@ Repo created for the C4A event
 * ansible-playbook -i ./list_hosts -u 5.2_SSH_Server_Configuration.yml
 
 ## Purpose:
-* Make use of ansible automation to comply with IBM Security Compliance Policy for Linux servers.
+* Make use of ansible to comply with IBM or CLients Security Compliance Policy for Linux servers.
 1. 5.2 SSH Server Configuration
 2. 
 
@@ -34,6 +34,6 @@ CIS Red Hat Enterprise Linux 5 Benchmark v2.2.0<br>
 ## Team Members:
 * Ami Shamril
 * Ikmal Ahmad
-* Mohd Hilman Hafiz
-* Mohd Zamani Zainal
+* Hilman Hafiz
+* Zamani Zainal
 * Adi Razlan
