@@ -1,0 +1,5 @@
+# It run based on hosts
+- name: 5.2 SSH Server Configuration
+  hosts: Dev
+  
+  
