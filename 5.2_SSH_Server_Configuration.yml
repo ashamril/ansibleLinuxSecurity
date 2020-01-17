@@ -17,6 +17,8 @@
       dest: /etc/ssh/sshd_config
       regexp: '^Protocol'
       line: 'Protocol 2'
+      validate: sshd -tf %s
+      notify: reload sshd
       
   - name: "5.2.3 Ensure SSH LogLevel is set to INFO"
   lineinfile:
@@ -24,6 +26,8 @@
       dest: /etc/ssh/sshd_config
       regexp: '^LogLevel'
       line: 'LogLevel INFO'
+      validate: sshd -tf %s
+      notify: reload sshd
       
   - name: "5.2.4 Ensure SSH X11 forwarding is disabled"
   lineinfile:
@@ -31,6 +35,8 @@
       dest: /etc/ssh/sshd_config
       regexp: '^X11Forwarding'
       line: 'X11Forwarding no'
+      validate: sshd -tf %s
+      notify: reload sshd
       
   - name: "5.2.8 Ensure SSH root login is disabled"
     lineinfile:
