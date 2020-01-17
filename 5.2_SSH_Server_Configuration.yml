@@ -3,24 +3,50 @@
   hosts: Dev
 
   tasks:
+  - name: "5.2.1 Ensure permissions on /etc/ssh/sshd_config are configured"
+    file:
+      dest: /etc/ssh/sshd_config
+      state: file
+      owner: root
+      group: root
+      mode: 0600
+      
+  - name: "5.2.2 Ensure SSH Protocol is set to 2"
+    lineinfile:
+      state: present
+      dest: /etc/ssh/sshd_config
+      regexp: '^Protocol'
+      line: 'Protocol 2'
+      
+  - name: "5.2.3 | Ensure SSH LogLevel is set to INFO"
+  lineinfile:
+      state: present
+      dest: /etc/ssh/sshd_config
+      regexp: '^LogLevel'
+      line: 'LogLevel INFO'
+      
   - name: "5.2.8 Ensure SSH root login is disabled"
     lineinfile:
       state: present
       dest: /etc/ssh/sshd_config
+      state: file
       regexp: ^#?PermitRootLogin
       line: PermitRootLogin no
       validate: sshd -tf %s
       notify: reload sshd
+      
   - name: "5.2.13 Ensure SSH Idle Timeout Interval is configured - ClientAliveCountMax"
-      lineinfile:
+    lineinfile:
       state: present
       dest: /etc/ssh/sshd_config
+      state: file
       regexp: ^#?ClientAliveCountMax 900
       line: ClientAliveCountMax 
       validate: sshd -tf %s
       notify: reload sshd
+      
   - name: "5.2.13 Ensure SSH LoginGraceTime is set to one minute or less"
-      lineinfile:
+    lineinfile:
       state: present
       dest: /etc/ssh/sshd_config
       regexp: ^#?LoginGraceTime
