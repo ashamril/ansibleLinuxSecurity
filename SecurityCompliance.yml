@@ -1,0 +1,3 @@
+# Call child playbook
+- import_playbook: 1.1_Filesystem_Configuration.yml
+- import_playbook: 5.2_SSH_Server_Configuration.yml
