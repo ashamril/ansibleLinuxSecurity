@@ -48,6 +48,26 @@
       validate: sshd -tf %s
       notify: reload sshd
       
+  - name: "5.2.9 Ensure SSH PermitEmptyPasswords is disabled"
+    lineinfile:
+      state: present
+      dest: /etc/ssh/sshd_config
+      state: file
+      regexp: ^#?PermitEmptyPasswords
+      line: PermitEmptyPasswords no
+      validate: sshd -tf %s
+      notify: reload sshd
+
+  - name: "5.2.10 Ensure SSH PermitUserEnvironment is disabled"
+    lineinfile:
+      state: present
+      dest: /etc/ssh/sshd_config
+      state: file
+      regexp: ^#?PermitUserEnvironment
+      line: PermitUserEnvironment no
+      validate: sshd -tf %s
+      notify: reload sshd
+
   - name: "5.2.13 Ensure SSH Idle Timeout Interval is configured - ClientAliveCountMax"
     lineinfile:
       state: present
