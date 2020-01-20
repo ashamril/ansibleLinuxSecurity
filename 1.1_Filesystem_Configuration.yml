@@ -1,11 +1,13 @@
 # It run based on hosts
 - name: 1.1 Filesystem Configuration
   hosts: Dev
+  become: yes
   
   tasks:
   - name: "1.1.1.1 Ensure mounting of cramfs filesystems is disabled"
     lineinfile:
       dest: /etc/modprobe.d/CIS.conf
+      state: present
       regexp: "^(#)?install cramfs(\\s|$)"
       line: "install cramfs /bin/true"
       create: yes
