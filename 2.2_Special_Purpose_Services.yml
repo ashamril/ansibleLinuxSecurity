@@ -3,7 +3,7 @@
   hosts: Dev
 
   tasks:
-  - name: "2.2.2 | Ensure X Window System in not installed"
+  - name: "2.2.2 Ensure X Window System in not installed"
     yum:
       name: xorg-x11-server-common.x86_64
       state: absent
