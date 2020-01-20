@@ -3,6 +3,8 @@
   hosts: Dev
   become: yes
 
+# 4 Logging and Auditing 
+
   tasks:
   - name: "4.2.4 Ensure permissions on all logfiles are configured"
     file:

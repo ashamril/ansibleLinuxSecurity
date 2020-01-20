@@ -22,7 +22,6 @@
       - vfat
 
   - name: "1.1.22 Disable automounting"
-  - name: Stop service autofs, if started
     service:
       name: autofs
       state: stopped
