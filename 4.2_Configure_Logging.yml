@@ -3,7 +3,7 @@
   hosts: Dev
 
   tasks:
-  - name: "4.2.4 | Ensure permissions on all logfiles are configured"
+  - name: "4.2.4 Ensure permissions on all logfiles are configured"
     file:
       path: /var/log
       mode: 0740
