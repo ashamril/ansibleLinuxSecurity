@@ -12,7 +12,7 @@
   - name: "2.2.2 Ensure X Window System in not installed"
     yum:
       name: xorg-x11-server-common.x86_64
-      state: absent
+      state: removed
 
   - name: 2.2."{{ item.no }}"  Ensure "{{ item.name }}" is not enabled
     service:
@@ -41,3 +41,14 @@
       - { no: '19', name: 'telnet.socket' }
       - { no: '20', name: 'tftp.socket' }
       - { no: '21', name: 'rsyncd' }
+
+  - name: 2.3 Service Clients "{{ item.no }}" Ensure "{{ item.name }}" is not installed
+    yum:
+      name: "{{ item.name }}"
+      state: removed
+    loop:
+      - { no: '01', name: 'ypbind' }
+      - { no: '02', name: 'rsh' }
+      - { no: '03', name: 'talk' }
+      - { no: '04', name: 'telnet' }
+      - { no: '05', name: 'openldap-clients' }       
