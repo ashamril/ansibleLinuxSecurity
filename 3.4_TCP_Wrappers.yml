@@ -3,14 +3,14 @@
   hosts: Dev
 
   tasks:
-  - name: "3.4.4 | Ensure permissions on /etc/hosts.allow are 644"
+  - name: "3.4.4 Ensure permissions on /etc/hosts.allow are 644"
     file:
       dest: /etc/hosts.allow
       owner: root
       group: root
       mode: 0644
       
-  - name: "3.4.5 | Ensure permissions on /etc/hosts.deny are 644"
+  - name: "3.4.5 Ensure permissions on /etc/hosts.deny are 644"
     file:
       dest: /etc/hosts.deny
       owner: root
