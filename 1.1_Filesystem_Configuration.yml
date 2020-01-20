@@ -6,7 +6,7 @@
   tasks:
   - name: "1.1.1.1 Ensure mounting of {{ item }} filesystems is disabled"
     lineinfile:
-      dest: /etc/modprobe.d/CIS.conf
+      path: /etc/modprobe.d/CIS.conf
       state: present
       regexp: "^(#)?install {{ item }}(\\s|$)"
       line: "install {{ item }} /bin/true"
@@ -21,3 +21,8 @@
       - udf
       - vfat
 
+  - name: "1.1.22 Disable automounting"
+  - name: Stop service autofs, if started
+    service:
+      name: autofs
+      state: stopped
