@@ -1,6 +1,7 @@
 # It run based on hosts
 - name: 5.2 SSH Server Configuration
   hosts: Dev
+  become: yes
 
   tasks:
   - name: "5.2.1 Ensure permissions on /etc/ssh/sshd_config are configured"
@@ -9,74 +10,63 @@
       state: file
       owner: root
       group: root
-      mode: 0600
-      
+      mode: '0600'
+
   - name: "5.2.2 Ensure SSH Protocol is set to 2"
     lineinfile:
-      state: present
       dest: /etc/ssh/sshd_config
+      state: present
       regexp: '^Protocol'
       line: 'Protocol 2'
       validate: sshd -tf %s
-      notify: reload sshd
-      
+
   - name: "5.2.3 Ensure SSH LogLevel is set to INFO"
-  lineinfile:
-      state: present
+    lineinfile:
       dest: /etc/ssh/sshd_config
+      state: present
       regexp: '^LogLevel'
       line: 'LogLevel INFO'
       validate: sshd -tf %s
-      notify: reload sshd
-      
+
   - name: "5.2.4 Ensure SSH X11 forwarding is disabled"
-  lineinfile:
+    lineinfile:
       state: present
       dest: /etc/ssh/sshd_config
       regexp: '^X11Forwarding'
       line: 'X11Forwarding no'
       validate: sshd -tf %s
-      notify: reload sshd
-      
+
   - name: "5.2.8 Ensure SSH root login is disabled"
     lineinfile:
       state: present
       dest: /etc/ssh/sshd_config
-      state: file
       regexp: ^#?PermitRootLogin
       line: PermitRootLogin no
       validate: sshd -tf %s
-      notify: reload sshd
       
   - name: "5.2.9 Ensure SSH PermitEmptyPasswords is disabled"
     lineinfile:
       state: present
       dest: /etc/ssh/sshd_config
-      state: file
       regexp: ^#?PermitEmptyPasswords
       line: PermitEmptyPasswords no
       validate: sshd -tf %s
-      notify: reload sshd
 
   - name: "5.2.10 Ensure SSH PermitUserEnvironment is disabled"
     lineinfile:
       state: present
       dest: /etc/ssh/sshd_config
-      state: file
       regexp: ^#?PermitUserEnvironment
       line: PermitUserEnvironment no
       validate: sshd -tf %s
-      notify: reload sshd
 
   - name: "5.2.13 Ensure SSH Idle Timeout Interval is configured - ClientAliveCountMax"
     lineinfile:
       state: present
       dest: /etc/ssh/sshd_config
-      state: file
-      regexp: ^#?ClientAliveCountMax 900
-      line: ClientAliveCountMax 
+      regexp: ^#?ClientAliveCountMax
+      line: ClientAliveCountMax 900
       validate: sshd -tf %s
-      notify: reload sshd
       
   - name: "5.2.13 Ensure SSH LoginGraceTime is set to one minute or less"
     lineinfile:
@@ -85,4 +75,6 @@
       regexp: ^#?LoginGraceTime
       line: LoginGraceTime 60
       validate: sshd -tf %s
-      notify: reload sshd
+
+  - name: SSHD Restart
+    service: name=sshd state=restarted enabled=yes
