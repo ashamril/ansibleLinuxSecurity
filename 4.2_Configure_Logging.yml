@@ -1,10 +1,11 @@
 # It run based on hosts
 - name: 5.2 SSH Server Configuration
   hosts: Dev
+  become: yes
 
   tasks:
   - name: "4.2.4 Ensure permissions on all logfiles are configured"
     file:
       path: /var/log
-      mode: 0740
+      mode: '0740'
       recurse: yes
