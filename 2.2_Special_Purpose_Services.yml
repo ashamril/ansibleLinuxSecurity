@@ -1,10 +1,43 @@
 # It run based on hosts
-- name: 5.2 SSH Server Configuration
-  hosts: Dev
+- name: 2.2 Special Purpose Service
+  hosts: RedHat
   become: yes
 
   tasks:
+  - name: "2.2.1.1 Ensure time synchronization is in use"
+    yum:
+      name: chrony
+      state: installed
+
   - name: "2.2.2 Ensure X Window System in not installed"
     yum:
       name: xorg-x11-server-common.x86_64
       state: absent
+
+  - name: 2.2."{{ item.no }}"  Ensure "{{ item.name }}" is not enabled
+    service:
+      name: "{{ item.name }}"
+      state: stopped
+    loop:
+      - { no: '03', name: 'avahi-daemon' }
+      - { no: '04', name: 'cups' }
+      - { no: '05', name: 'dhcpd' }
+      - { no: '06', name: 'slapd' }
+      - { no: '07', name: 'nfs' }
+      - { no: '07', name: 'nfs-server' }
+      - { no: '07', name: 'rpcbind' }
+      - { no: '08', name: 'named' }
+      - { no: '09', name: 'vsftpd' }
+      - { no: '10', name: 'httpd' }
+      - { no: '11', name: 'dovecot' }
+      - { no: '12', name: 'smb' }
+      - { no: '13', name: 'squid' }
+      - { no: '14', name: 'snmpd' }
+      - { no: '16', name: 'ypserv' }
+      - { no: '17', name: 'rsh.socket' }
+      - { no: '17', name: 'rlogin.socket' }
+      - { no: '17', name: 'rexec.socket' }
+      - { no: '18', name: 'ntalk' }
+      - { no: '19', name: 'telnet.socket' }
+      - { no: '20', name: 'tftp.socket' }
+      - { no: '21', name: 'rsyncd' }
