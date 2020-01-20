@@ -4,11 +4,20 @@
   become: yes
   
   tasks:
-  - name: "1.1.1.1 Ensure mounting of cramfs filesystems is disabled"
+  - name: "1.1.1.1 Ensure mounting of {{ item }} filesystems is disabled"
     lineinfile:
       dest: /etc/modprobe.d/CIS.conf
       state: present
-      regexp: "^(#)?install cramfs(\\s|$)"
-      line: "install cramfs /bin/true"
+      regexp: "^(#)?install {{ item }}(\\s|$)"
+      line: "install {{ item }} /bin/true"
       create: yes
-  
+    loop:
+      - cramfs
+      - freevxfs
+      - jffs2
+      - hfs
+      - hfsplus
+      - squashfs
+      - udf
+      - vfat
+
