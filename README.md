@@ -2,7 +2,7 @@
 Repo created for the C4A event
 
 ## Usage :
-* ansible-playbook -i ./list_hosts -u 5.2_SSH_Server_Configuration.yml
+* ansible-playbook -i ./list_hosts -u ikmal SecurityCompliance.yml
 
 ## Purpose:
 * Make use of ansible to comply with IBM or Clients Security Compliance Policy for Linux servers.
