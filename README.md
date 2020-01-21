@@ -1,6 +1,34 @@
 # c4a-ansi4comply
 Repo created for the C4A event
 
+## Title of the automation:
+
+## User story:
+
+
+## Request Category:
+Ansible
+
+## Sub Category:
+Ansible Asset
+
+## Types:
+Ansible Playbook
+
+## Details:
+ntah
+
+## Platform:
+Linux
+
+## Scope of Automation:
+
+## Solution:
+
+## What is the estimation or assumption of saved time in minutes per case (per server, per execution, per schedule, etc)?:
+
+## How often is this automation used? What is the frequency for this automation?
+
 ## Usage :
 * ansible-playbook -i ./list_hosts -u ikmal SecurityCompliance.yml
 
