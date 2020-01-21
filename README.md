@@ -5,7 +5,6 @@ Repo created for the C4A event
 
 ## User story:
 
-
 ## Request Category:
 Ansible
 
@@ -16,7 +15,6 @@ Ansible Asset
 Ansible Playbook
 
 ## Details:
-ntah
 
 ## Platform:
 Linux
@@ -40,7 +38,6 @@ Linux
 * 1.1 Filesystem Configuration
 
 2 Services
-* 2.1 inetd Services
 * 2.2 Special Purpose Services
 * 2.3 Service Clients
 
@@ -68,8 +65,6 @@ CIS Red Hat Enterprise Linux 8 Benchmark v1.0.0<br>
 CIS Red Hat Enterprise Linux 7 Benchmark v2.2.0<br>
 CIS Red Hat Enterprise Linux 6 Benchmark v2.1.0<br>
 CIS Red Hat Enterprise Linux 5 Benchmark v2.2.0<br>
-
-
 
 ## Example:
 * Rule Title: Ensure SSH root login is disabled
