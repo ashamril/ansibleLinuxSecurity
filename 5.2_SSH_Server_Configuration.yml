@@ -1,9 +1,47 @@
 # It run based on hosts
-- name: 5.2 SSH Server Configuration
-  hosts: Dev
+# 5 Access, Authentication and Authorization
+#- name: 5 Access, Authentication and Authorization
+# 5.1 Configure cron
+- name: 5.1 Configure cron
+  hosts: RedHat
   become: yes
 
   tasks:
+  # 5.1.1 Ensure cron daemon is enabled
+  - name: 5.1.1 Ensure cron daemon is enabled
+    service:
+      name: crond
+      state: started
+
+  # 5.1.2 Ensure permissions on /etc/crontab are configured
+  - name: 5.1."{{ item.no }}" Ensure permissions on "{{ item.path }}" are configured
+    file:
+      path: "{{ item.path }}" 
+      owner: "{{ item.owner }}"
+      group: "{{ item.group }}"
+      mode: "{{ item.mode }}"
+    with_items:
+      - { no: 2, path: /etc/crontab, owner: root, group: root, mode: '0600' }
+      - { no: 3, path: /etc/cron.hourly, owner: root, group: root, mode: '0700' }
+      - { no: 4, path: /etc/cron.daily, owner: root, group: root, mode: '0700' }
+      - { no: 5, path: /etc/cron.weekly, owner: root, group: root, mode: '0700' }
+      - { no: 6, path: /etc/cron.monthly, owner: root, group: root, mode: '0700' }
+      - { no: 7, path: /etc/cron.d, owner: root, group: root, mode: '0700' }
+
+  # 5.1.8 Ensure at/cron is restricted to authorize users
+  - name: 5.1.8 Ensure at/cron is restricted to authorize users
+    file:
+      path: /etc/cron.deny /etc/at.deny
+      state: absent
+  - name: 5.1.8 Ensure at/cron is restricted to authorize users
+    file:
+      path: /etc/cron.allow /etc/at.allow
+      owner: root
+      group: root
+      mode: '0700'
+      state: touch
+
+  # 5.2 SSH Server Configuration
   - name: "5.2.1 Ensure permissions on /etc/ssh/sshd_config are configured"
     file:
       dest: /etc/ssh/sshd_config
@@ -34,6 +72,22 @@
       dest: /etc/ssh/sshd_config
       regexp: '^X11Forwarding'
       line: 'X11Forwarding no'
+      validate: sshd -tf %s
+
+  - name: 5.2.6 Ensure SSH IgnoreRhosts is enabled
+    lineinfile:
+      state: present
+      dest: /etc/ssh/sshd_config
+      regexp: '^IgnoreRhosts'
+      line: 'IgnoreRhosts yes'
+      validate: sshd -tf %s
+      
+  - name: 5.2.7 Ensure SSH HostbasedAuthentication is disabled
+    lineinfile:
+      state: present
+      dest: /etc/ssh/sshd_config
+      regexp: '^HostbasedAuthentication'
+      line: 'HostbasedAuthentication no'
       validate: sshd -tf %s
 
   - name: "5.2.8 Ensure SSH root login is disabled"
