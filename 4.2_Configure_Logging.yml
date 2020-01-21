@@ -1,11 +1,66 @@
 # It run based on hosts
-- name: 5.2 SSH Server Configuration
-  hosts: Dev
+# 4 Logging and Auditing 
+- name: 4 Logging and Auditing 
+  hosts: RedHat
   become: yes
 
-# 4 Logging and Auditing 
-
   tasks:
+  # 4.1.1.2 Ensure system is disabled when audit logs are full
+  - name: 4.1.1.2 Ensure system is disabled when audit logs are full
+    lineinfile:
+      path: /etc/audit/auditd.conf
+      state: present
+      regexp: "^{{ item.name }}"
+      line: "{{ item.name }} = {{ item.set }}"
+      create: yes
+    loop:
+      - { name: 'space_left_action' , set: 'email' }
+      - { name: 'action_mail_acct' , set: 'root' }
+      - { name: 'admin_space_left_action' , set: 'halt' }
+
+  # 4.1.1.3 Ensure audit logs are not automatically deleted
+  - name: 4.1.1.2 Ensure system is disabled when audit logs are full
+    lineinfile:
+      path: /etc/audit/auditd.conf
+      state: present
+      regexp: "^max_log_file_action"
+      line: "max_log_file_action = keep_logs"
+      create: yes
+
+  # 4.1.2 Ensure auditd service is enabled
+  - name: 4.1.2 Ensure auditd service is enabled
+    service:
+      name: auditd
+      state: started
+
+  # 4.1.3 Ensure auditing for processes that start prior to auditd is enabled
+  - name: 4.1.3 Ensure auditing for processes that start prior to auditd is enabled
+    lineinfile:
+      path: /boot/grub2/grub.cfg
+      state: present
+      regexp: "^(#)GRUB_CMDLINE_LINUX="
+      line: GRUB_CMDLINE_LINUX="audit=1"
+      create: yes
+
+  - name: 4.1.3 Ensure auditing for processes that start prior to auditd is enabled
+    command: grub2-mkconfig -o /boot/grub2/grub.cfg
+
+  # 4.2 Configure Logging
+  # 4.2.1 Configure rsyslog
+  # 4.1.2 Ensure auditd service is enabled
+  # 4.2.1.1 Ensure rsyslog Service is enabled
+  - name: 4.2.1.1 Ensure rsyslog Service is enabled
+    service:
+      name: rsyslog
+      state: started
+
+  # 4.2.3 Ensure rsyslog or syslog-ng is installed
+  - name: 4.2.3 Ensure rsyslog is installed
+    yum:
+      name: rsyslog
+      state: installed
+
+  # 4.2.4 Ensure permissions on all logfiles are configured
   - name: "4.2.4 Ensure permissions on all logfiles are configured"
     file:
       path: /var/log
