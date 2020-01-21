@@ -1,7 +1,7 @@
 # It run based on hosts
 # 6 System Maintenance
 - name: 6.1 System File Permissions 
-  hosts: Dev
+  hosts: All
   become: yes
 
   tasks:

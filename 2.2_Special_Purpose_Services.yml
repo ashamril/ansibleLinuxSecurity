@@ -1,6 +1,6 @@
 # It run based on hosts
 - name: 2.2 Special Purpose Service
-  hosts: RedHat
+  hosts: All
   become: yes
 
   tasks:

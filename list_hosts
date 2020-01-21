@@ -1,3 +1,9 @@
 # List of hosts
+[All]
+RedHat
+
 [Dev]
 localhost
+
+[RedHat]
+192.168.122.79

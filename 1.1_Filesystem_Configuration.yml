@@ -1,6 +1,6 @@
 # It run based on hosts
 - name: 1.1 Filesystem Configuration
-  hosts: Dev
+  hosts: All
   become: yes
   
   tasks:

@@ -1,3 +1,7 @@
 # Call child playbook
 - import_playbook: 1.1_Filesystem_Configuration.yml
-- import_playbook: 5.2_SSH_Server_Configuration.yml
+- import_playbook: 2.2_Special_Purpose_Services.yml
+- import_playbook: 3_TCP_Wrappers.yml
+- import_playbook: 4_Configure_Logging.yml
+- import_playbook: 5_SSH_Server_Configuration.yml
+- import_playbook: 6.1_System_File_Permissions.yml

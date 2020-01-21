@@ -1,7 +1,7 @@
 # It run based on hosts
 # 4 Logging and Auditing 
 - name: 4 Logging and Auditing 
-  hosts: RedHat
+  hosts: All
   become: yes
 
   tasks:

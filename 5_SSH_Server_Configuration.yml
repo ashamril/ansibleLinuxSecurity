@@ -3,7 +3,7 @@
 #- name: 5 Access, Authentication and Authorization
 # 5.1 Configure cron
 - name: 5.1 Configure cron
-  hosts: RedHat
+  hosts: All
   become: yes
 
   tasks:
