@@ -23,15 +23,15 @@ This playbook have been create to make use ansible to ensure server is comply as
 
 The playbook uses 3 modules listed below:
 * Commands modules
-** command
+  * command
 * Files modules
-** file
-** lineinfile
+  * file
+  * lineinfile
 * System modules
-** service
-** sysctl
+  * service
+  * sysctl
 * Packaging modules
-** yum
+  * yum
 
 ## Platform:
 Red Hat Linux 7.x and below
