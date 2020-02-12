@@ -90,11 +90,12 @@ The name of of need to be include in: list_hosts before the execution
 This playbook run with assumption that user can sudo without using password (this can be fixed in future release by using ansible-vault).
 
 ## Playbook Status:
-Continuous developement need to for this playbook to ensure it cover more such as:
+Continuous developement need for this playbook to ensure it covers more areas such as:
+- All security compliance standards/policies
 - Newest/Latest Red Hat release.
 - Ubuntu based linux.
-- Other Operating System  such as Solaris, HP-UX, and AIX
-- Future additional compliance standards.
+- Other Operating Systems such as Solaris, HP-UX, AIX and Windows
+
 
 ## References / Benchmark:
 1. https://www.cisecurity.org/benchmark/red_hat_linux/<br>
