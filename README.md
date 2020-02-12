@@ -39,30 +39,29 @@ Red Hat Linux 7.x and below
 ## Scope of Automation:
 As per Security Compliance Guideline, below is the topic that have been cover :
 ### Topics covered:
-1 Initial Setup
-* 1.1 Filesystem Configuration
+1. Initial Setup
+   1. Filesystem Configuration
+2. Services
+   1. Special Purpose Services
+   2. Service Clients
 
-2 Services
-* 2.2 Special Purpose Services
-* 2.3 Service Clients
+3. Network Configuration
+   1. Network Parameters (Host Only)
+   2. Network Parameters (Host and Router)
+   3. IPv6
+   4. TCP Wrappers
+   5. Uncommon Network Protocols
 
-3 Network Configuration
-* 3.1 Network Parameters (Host Only)
-* 3.2 Network Parameters (Host and Router)
-* 3.3 IPv6
-* 3.4 TCP Wrappers
-* 3.5 Uncommon Network Protocols
+4. Logging and Auditing
+   1. Configure System Accounting (auditd)
+   2. Configure Logging
 
-4 Logging and Auditing
-* 4.1 Configure System Accounting (auditd)
-* 4.2 Configure Logging
+5. Access, Authentication and Authorization
+   1. Configure cron
+   2. SSH Server Configuration
 
-5 Access, Authentication and Authorization
-* 5.1 Configure cron
-* 5.2 SSH Server Configuration
-
-6 System Maintenance
-* 6.1 System File Permissions
+6. System Maintenance
+   1. System File Permissions
 
 ## Solution:
 Ansible will be used to ensure the server that have been deployed follow the Security Compliance Policy.
