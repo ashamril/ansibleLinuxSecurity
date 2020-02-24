@@ -2,7 +2,7 @@
 Repo created for the C4A event
 
 ## Title of the automation:
-IBM or Clients Security Compliance Policy for Linux servers.
+IBM or Clients Security Compliance Policy for Linux Servers.
 
 ## User story:
 Security compliance is a legal concern for organizations in many industries today. Regulatory standards prescribe recommendations for protecting data and improving info security management in the enterprise. In demonstrating security compliance, enterprises are better able to define and achieve specific IT security goals as well as mitigate the threat of network attacks through processes like vulnerability management. In some cases, failure to achieve and maintain security compliance can result in financial and legal penalties.
@@ -19,9 +19,9 @@ Ansible Playbook
 ## Details:
 CIS benchmarks are configuration baselines and best practices for securely configuring a system. Each of the guidance recommendations references one or more CIS controls that were developed to help organizations improve their cyberdefense capabilities. CIS controls map to many established standards and regulatory frameworks, including the NIST Cybersecurity Framework (CSF) and NIST SP 800-53, the ISO 27000 series of standards, PCI DSS, HIPAA, and others.
 
-This playbook have been create to make use ansible to ensure server is comply as per Center for Internet Security (CIS) benchmark.
+This playbook has been created to make use of ansible to ensure server is comply as per Center for Internet Security (CIS) benchmark.
 
-The playbook uses 3 modules listed below:
+The playbook uses 4 modules listed below:
 * Commands modules
   * command
 * Files modules
@@ -37,7 +37,7 @@ The playbook uses 3 modules listed below:
 Red Hat Linux 7.x and below
 
 ## Scope of Automation:
-As per Security Compliance Guideline, below is the topic that have been cover :
+As per Security Compliance Guideline, below is the topics that have been covered :
 ### Topics covered:
 1. Initial Setup
    1. Filesystem Configuration
@@ -64,7 +64,7 @@ As per Security Compliance Guideline, below is the topic that have been cover :
    1. System File Permissions
 
 ## Solution:
-Ansible will be used to ensure the server that have been deployed follow the Security Compliance Policy.
+Ansible will be used to ensure the server that have been deployed follows the Security Compliance Policy.
 
 ## What is the estimation or assumption of saved time in minutes per case (per server, per execution, per schedule, etc)?:
 1. How much time does it currently take to execute this task manually: 1-2 hours/server.
@@ -87,7 +87,7 @@ SecurityCompliance.yml will call:
 6. 6.1_System_File_Permissions.yml
 
 The name of of need to be include in: list_hosts before the execution
-This playbook run with assumption that user can sudo without using password (this can be fixed in future release by using ansible-vault).
+This playbook runs with assumption that user can sudo without using password (this can be fixed in future release by using ansible-vault).
 
 ## Playbook Status:
 Continuous developement need for this playbook to ensure it covers more areas such as:
